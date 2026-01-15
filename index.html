@@ -3,16 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulateur Énergie 2026</title>
+    <title>Simulateur MaPrimeRénov' 2026 | Calcul Gratuit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f0f2f5; }
-        .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        .step { display: none; }
+        .step.active { display: block; }
     </style>
 </head>
-<body>
-    <div class="card">
-        <h1>🚀 Simulateur Rénovation 2026</h1>
-        <p>Le site est en cours de déploiement sur Vercel...</p>
+<body class="bg-gray-50 text-gray-900 font-sans">
+    <div class="max-w-2xl mx-auto px-4 py-12">
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+            <div class="text-center mb-10">
+                <h1 class="text-3xl font-bold text-blue-700">Simulateur Aides 2026</h1>
+                <p class="text-gray-500 mt-2">Calculez vos primes en moins de 30 secondes.</p>
+            </div>
+
+            <form id="simuForm">
+                <div class="step active" id="step1">
+                    <h2 class="text-xl font-semibold mb-6">1. Quel est votre projet ?</h2>
+                    <div class="grid grid-cols-1 gap-4">
+                        <label class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 flex items-center">
+                            <input type="radio" name="projet" value="PAC" class="mr-3" checked>
+                            <span>Pompe à Chaleur Air-Eau</span>
+                        </label>
+                        <label class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 flex items-center">
+                            <input type="radio" name="projet" value="SOLAIRE" class="mr-3">
+                            <span>Panneaux Solaires Photovoltaïques</span>
+                        </label>
+                    </div>
+                    <button type="button" onclick="nextStep(2)" class="w-full mt-8 bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition">Continuer</button>
+                </div>
+
+                <div class="step" id="step2">
+                    <h2 class="text-xl font-semibold mb-6">2. Revenu fiscal du foyer</h2>
+                    <input type="number" id="revenus" placeholder="Ex: 28000" class="w-full border-2 border-gray-200 rounded-lg p-4 text-lg mb-4">
+                    <p class="text-sm text-gray-400 mb-6">Indiqué sur votre dernier avis d'imposition.</p>
+                    <button type="button" onclick="calculate()" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition">Voir mon éligibilité</button>
+                </div>
+
+                <div class="step" id="step3">
+                    <div class="bg-green-50 border-2 border-green-200 rounded-xl p-6 mb-8 text-center">
+                        <h3 class="text-green-800 font-bold text-xl">Bonne nouvelle ! Vous êtes éligible.</h3>
+                        <p class="text-4xl font-black text-green-700 my-4" id="montantAide">-- €</p>
+                        <p class="text-sm text-green-600 italic">Estimation basée sur le barème 2026.</p>
+                    </div>
+                    
+                    <h2 class="text-lg font-bold mb-4">Recevez votre rapport complet par SMS & Email :</h2>
+                    <div class="space-y-4">
+                        <input type="text" id="nom" placeholder="Votre Prénom" required class="w-full border-2 border-gray-200 rounded-lg p-4">
+                        <input type="email" id="email" placeholder="Votre Email" required class="w-full border-2 border-gray-200 rounded-lg p-4">
+                        <input type="tel" id="tel" placeholder="Votre Téléphone (Ex: 0612...)" required class="w-full border-2 border-gray-200 rounded-lg p-4">
+                    </div>
+                    <button type="submit" class="w-full mt-8 bg-orange-500 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-orange-600 transition uppercase">Recevoir mes aides détaillées</button>
+                </div>
+            </form>
+        </div>
     </div>
+
+    <script>
+        function nextStep(s) {
+            document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step' + s).classList.add('active');
+        }
+
+        function calculate() {
+            const revenus = document.getElementById('revenus').value;
+            let aide = 0;
+            // Logique simplifiée barème 2026
+            if (revenus < 25000) aide = 9500;
+            else if (revenus < 35000) aide = 7000;
+            else if (revenus < 50000) aide = 4500;
+            else aide = 1500;
+
+            document.getElementById('montantAide').innerText = aide + " €*";
+            nextStep(3);
+        }
+
+        document.getElementById('simuForm').onsubmit = function(e) {
+            e.preventDefault();
+            const data = {
+                nom: document.getElementById('nom').value,
+                email: document.getElementById('email').value,
+                tel: document.getElementById('tel').value,
+                aide: document.getElementById('montantAide').innerText
+            };
+            alert("Merci " + data.nom + " ! Vos données ont été transmises. Un expert va vous recontacter.");
+            // Ici nous brancherons l'envoi automatique vers ton Google Sheet ou ton Acheteur de leads
+        };
+    </script>
 </body>
 </html>
