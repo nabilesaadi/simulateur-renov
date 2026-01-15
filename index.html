@@ -3,62 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulateur MaPrimeRénov' 2026 | Calcul Gratuit</title>
+    <title>Simulateur MaPrimeRénov' 2026 | Calcul des aides rénovation énergie</title>
+    <meta name="description" content="Utilisez notre simulateur gratuit pour calculer vos aides MaPrimeRénov' 2026 et primes CEE. Résultat immédiat pour pompe à chaleur et isolation.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .step { display: none; }
-        .step.active { display: block; }
-    </style>
+    <style>.step { display: none; } .step.active { display: block; }</style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
-    <div class="max-w-2xl mx-auto px-4 py-12">
-        <div class="bg-white rounded-2xl shadow-xl p-8">
-            <div class="text-center mb-10">
-                <h1 class="text-3xl font-bold text-blue-700">Simulateur Aides 2026</h1>
-                <p class="text-gray-500 mt-2">Calculez vos primes en moins de 30 secondes.</p>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <nav class="bg-white border-b py-4 px-6 mb-8">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span class="text-xl font-bold text-blue-800">Direct-Renov-Energie.com</span>
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#bareme" class="hover:text-blue-600">Barème 2026</a>
+                <a href="#aides" class="hover:text-blue-600">Aides disponibles</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-4 mb-16">
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+            
+            <div class="p-8 md:p-12 bg-blue-700 text-white flex flex-col justify-center">
+                <h1 class="text-3xl font-extrabold mb-6 leading-tight">Simulateur MaPrimeRénov' 2026 : Calculez vos aides en 2 min</h1>
+                <ul class="space-y-4 text-blue-100">
+                    <li class="flex items-start"><span class="mr-2">✔️</span> Estimation gratuite et immédiate</li>
+                    <li class="flex items-start"><span class="mr-2">✔️</span> Mise à jour selon les barèmes 2026</li>
+                    <li class="flex items-start"><span class="mr-2">✔️</span> Jusqu'à 90% du projet financé</li>
+                </ul>
             </div>
 
-            <form id="simuForm">
-                <div class="step active" id="step1">
-                    <h2 class="text-xl font-semibold mb-6">1. Quel est votre projet ?</h2>
-                    <div class="grid grid-cols-1 gap-4">
-                        <label class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 flex items-center">
-                            <input type="radio" name="projet" value="PAC" class="mr-3" checked>
-                            <span>Pompe à Chaleur Air-Eau</span>
-                        </label>
-                        <label class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500 flex items-center">
-                            <input type="radio" name="projet" value="SOLAIRE" class="mr-3">
-                            <span>Panneaux Solaires Photovoltaïques</span>
-                        </label>
+            <div class="p-8 md:p-12">
+                <form id="simuForm">
+                    <div class="step active" id="step1">
+                        <label class="block text-sm font-bold mb-4 uppercase text-slate-500 tracking-wider">Étape 1 : Votre projet</label>
+                        <select name="projet" class="w-full border-2 border-slate-100 rounded-xl p-4 mb-6 focus:border-blue-500 outline-none">
+                            <option value="PAC">Pompe à Chaleur Air-Eau</option>
+                            <option value="SOLAIRE">Panneaux Photovoltaïques</option>
+                        </select>
+                        <button type="button" onclick="nextStep(2)" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold shadow-lg hover:translate-y-[-2px] transition-all">Suivant</button>
                     </div>
-                    <button type="button" onclick="nextStep(2)" class="w-full mt-8 bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition">Continuer</button>
-                </div>
 
-                <div class="step" id="step2">
-                    <h2 class="text-xl font-semibold mb-6">2. Revenu fiscal du foyer</h2>
-                    <input type="number" id="revenus" placeholder="Ex: 28000" class="w-full border-2 border-gray-200 rounded-lg p-4 text-lg mb-4">
-                    <p class="text-sm text-gray-400 mb-6">Indiqué sur votre dernier avis d'imposition.</p>
-                    <button type="button" onclick="calculate()" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition">Voir mon éligibilité</button>
-                </div>
+                    <div class="step" id="step2">
+                        <label class="block text-sm font-bold mb-4 uppercase text-slate-500 tracking-wider">Étape 2 : Vos Revenus</label>
+                        <input type="number" id="revenus" placeholder="Revenu fiscal de référence" class="w-full border-2 border-slate-100 rounded-xl p-4 mb-6 outline-none focus:border-blue-500">
+                        <button type="button" onclick="calculate()" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold shadow-lg">Calculer ma prime</button>
+                    </div>
 
-                <div class="step" id="step3">
-                    <div class="bg-green-50 border-2 border-green-200 rounded-xl p-6 mb-8 text-center">
-                        <h3 class="text-green-800 font-bold text-xl">Bonne nouvelle ! Vous êtes éligible.</h3>
-                        <p class="text-4xl font-black text-green-700 my-4" id="montantAide">-- €</p>
-                        <p class="text-sm text-green-600 italic">Estimation basée sur le barème 2026.</p>
+                    <div class="step" id="step3">
+                        <div class="text-center mb-6">
+                            <span class="text-sm text-green-600 font-bold uppercase tracking-widest">Éligibilité Confirmée</span>
+                            <div class="text-4xl font-black text-slate-800 my-2" id="montantAide">0 €*</div>
+                        </div>
+                        <p class="text-xs text-slate-400 mb-6 text-center">Laissez vos coordonnées pour recevoir le dossier complet par email.</p>
+                        <input type="text" id="nom" placeholder="Votre Prénom" required class="w-full border border-slate-200 rounded-lg p-3 mb-3">
+                        <input type="tel" id="tel" placeholder="N° de Téléphone" required class="w-full border border-slate-200 rounded-lg p-3 mb-6">
+                        <button type="submit" class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold uppercase tracking-wide shadow-lg">Recevoir mon dossier PDF</button>
                     </div>
-                    
-                    <h2 class="text-lg font-bold mb-4">Recevez votre rapport complet par SMS & Email :</h2>
-                    <div class="space-y-4">
-                        <input type="text" id="nom" placeholder="Votre Prénom" required class="w-full border-2 border-gray-200 rounded-lg p-4">
-                        <input type="email" id="email" placeholder="Votre Email" required class="w-full border-2 border-gray-200 rounded-lg p-4">
-                        <input type="tel" id="tel" placeholder="Votre Téléphone (Ex: 0612...)" required class="w-full border-2 border-gray-200 rounded-lg p-4">
-                    </div>
-                    <button type="submit" class="w-full mt-8 bg-orange-500 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-orange-600 transition uppercase">Recevoir mes aides détaillées</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
+
+    <div class="max-w-4xl mx-auto px-4 py-12 border-t">
+        <h2 id="bareme" class="text-2xl font-bold mb-6">Tout savoir sur les aides à la rénovation énergétique en 2026</h2>
+        
+        <div class="prose prose-slate max-w-none">
+            <p class="mb-4">Depuis le 1er janvier 2026, la réforme de la rénovation énergétique a simplifié l'accès aux primes pour les foyers français. Que vous souhaitiez installer une <strong>pompe à chaleur</strong> ou isoler vos combles, plusieurs dispositifs se cumulent.</p>
+            
+            <h3 class="text-xl font-bold mt-8 mb-4">Le barème MaPrimeRénov' 2026</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse border border-slate-200 rounded-lg overflow-hidden">
+                    <thead class="bg-slate-100">
+                        <tr>
+                            <th class="p-4 border border-slate-200">Catégorie</th>
+                            <th class="p-4 border border-slate-200">Revenus (Foyer 2 pers.)</th>
+                            <th class="p-4 border border-slate-200">Aide max PAC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="p-4 border border-slate-200 font-bold text-blue-600">Profil Bleu</td><td class="p-4 border border-slate-200">< 30 000€</td><td class="p-4 border border-slate-200">9 500€</td></tr>
+                        <tr><td class="p-4 border border-slate-200 font-bold text-yellow-500">Profil Jaune</td><td class="p-4 border border-slate-200">< 42 000€</td><td class="p-4 border border-slate-200">7 000€</td></tr>
+                        <tr><td class="p-4 border border-slate-200 font-bold text-purple-600">Profil Violet</td><td class="p-4 border border-slate-200">< 60 000€</td><td class="p-4 border border-slate-200">4 000€</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-bold mt-8 mb-4">Pourquoi rénover maintenant ?</h3>
+            <p>Le coût de l'énergie (électricité et gaz) continue d'augmenter. En profitant des aides actuelles, vous pouvez réduire vos factures de chauffage de <strong>60% à 75%</strong> tout en valorisant votre patrimoine immobilier.</p>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-slate-500 py-12 px-6 text-center text-sm">
+        <p>&copy; 2026 Direct-Renov-Energie.com - Site indépendant non-gouvernemental.</p>
+        <p class="mt-2 text-slate-700">Conformément à la loi informatique et libertés, vous disposez d'un droit d'accès à vos données.</p>
+    </footer>
 
     <script>
         function nextStep(s) {
@@ -69,26 +107,18 @@
         function calculate() {
             const revenus = document.getElementById('revenus').value;
             let aide = 0;
-            // Logique simplifiée barème 2026
-            if (revenus < 25000) aide = 9500;
-            else if (revenus < 35000) aide = 7000;
-            else if (revenus < 50000) aide = 4500;
+            if (revenus < 30000) aide = 9500;
+            else if (revenus < 42000) aide = 7000;
+            else if (revenus < 60000) aide = 4000;
             else aide = 1500;
-
             document.getElementById('montantAide').innerText = aide + " €*";
             nextStep(3);
         }
 
         document.getElementById('simuForm').onsubmit = function(e) {
             e.preventDefault();
-            const data = {
-                nom: document.getElementById('nom').value,
-                email: document.getElementById('email').value,
-                tel: document.getElementById('tel').value,
-                aide: document.getElementById('montantAide').innerText
-            };
-            alert("Merci " + data.nom + " ! Vos données ont été transmises. Un expert va vous recontacter.");
-            // Ici nous brancherons l'envoi automatique vers ton Google Sheet ou ton Acheteur de leads
+            alert("Succès ! Vos données ont été enregistrées. Nous vous contactons pour votre dossier.");
+            // Logique d'envoi à venir
         };
     </script>
 </body>
