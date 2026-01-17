@@ -8,6 +8,12 @@
     <meta name="description" content="Simulateur gratuit et indépendant MaPrimeRénov' 2026. Estimez vos primes pour pompe à chaleur, isolation et solaire en 2 minutes selon les derniers décrets.">
     <link rel="canonical" href="https://www.direct-renov-energie.com/">
     
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <meta property="og:title" content="Simulateur MaPrimeRénov' 2026 | Calcul Gratuit">
     <meta property="og:description" content="Découvrez le montant de vos aides à la rénovation énergétique pour 2026.">
     <meta property="og:url" content="https://www.direct-renov-energie.com/">
@@ -96,6 +102,10 @@
                                 <p class="text-xs font-bold text-slate-400 mb-4 uppercase text-center tracking-widest">Réception du dossier expert (PDF)</p>
                                 <input type="text" id="nom" placeholder="Votre Prénom" required class="w-full border border-slate-200 rounded-lg p-3 mb-3 outline-none focus:ring-2 ring-blue-500/20">
                                 <input type="tel" id="tel" placeholder="N° de Téléphone Mobile" required class="w-full border border-slate-200 rounded-lg p-3 outline-none focus:ring-2 ring-blue-500/20">
+                                
+                                <p class="text-[10px] text-slate-400 mt-4 leading-tight text-center">
+                                    En validant ce formulaire, vous acceptez d'être recontacté par nos partenaires experts pour votre bilan énergétique gratuit, conformément à notre politique de protection des données.
+                                </p>
                             </div>
                             <button type="submit" id="submitBtn" class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-orange-600 transition uppercase tracking-wide">Recevoir mon guide personnalisé</button>
                         </div>
@@ -174,6 +184,7 @@
         document.getElementById('simuForm').onsubmit = function(e) {
             e.preventDefault();
             
+            // L'URL de votre script Google mis à jour avec la fonction email
             const scriptURL = 'https://script.google.com/macros/s/AKfycbyPLhGdMlMcV8PI7w2JJFkk4fqhiEF84la9e87uEQxBApmIPI7RHTL7rjApcSl88kFvzw/exec';
             const btn = document.getElementById('submitBtn');
             btn.disabled = true;
