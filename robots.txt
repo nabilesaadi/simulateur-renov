@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.direct-renov-energie.com/sitemap.xml
