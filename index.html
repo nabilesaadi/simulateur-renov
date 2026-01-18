@@ -17,126 +17,170 @@
 
     <div class="bg-red-600 text-white py-3 px-4 text-center shadow-lg sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-2">
-            <span class="bg-white text-red-600 font-black uppercase text-[10px] px-2 py-0.5 rounded shadow-sm">Alerte Budget 2026</span>
-            <p class="text-sm font-bold">Guichet suspendu : Réservez votre audit ADEME prioritaire dès maintenant.</p>
+            <span class="bg-white text-red-600 font-black uppercase text-[10px] px-2 py-0.5 rounded shadow-sm tracking-tighter">Info Urgente 2026</span>
+            <p class="text-sm font-bold leading-tight">
+                Guichet MaPrimeRénov’ suspendu : Réservez votre audit ADEME pour être prioritaire à la réouverture.
+            </p>
         </div>
     </div>
 
-    <header class="bg-white border-b py-6 px-6 shadow-sm">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <a href="/" class="text-3xl font-black tracking-tighter text-slate-900 uppercase">Direct <span class="text-blue-600">Rénov</span> Énergie</a>
-            <nav class="flex gap-6 items-center">
-                <a href="/guide-maprimerenov-2026" class="text-sm font-bold text-blue-600 hover:text-blue-800 border-b-2 border-blue-600 pb-1">GUIDE EXPERT 2026</a>
+    <header class="bg-white border-b py-8 px-6 shadow-sm">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <a href="/" class="text-4xl font-black tracking-tighter text-slate-900 uppercase">
+                Direct <span class="text-blue-600">Rénov</span> Énergie
+            </a>
+            <nav class="flex gap-8">
+                <a href="/guide-maprimerenov-2026" class="text-sm font-bold text-blue-600 hover:text-blue-800 border-b-2 border-blue-600 pb-1 uppercase tracking-tighter">Le Guide Expert 2026</a>
             </nav>
         </div>
     </header>
 
     <main class="max-w-6xl mx-auto px-4 py-12">
-        <section class="mb-20">
-            <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-slate-100 flex flex-col md:flex-row">
-                <div class="md:w-5/12 p-8 md:p-12 bg-gradient-premium text-white flex flex-col">
-                    <h3 class="text-2xl font-bold mb-8 italic underline decoration-blue-400 underline-offset-8">Pourquoi notre observatoire ?</h3>
+        
+        <section class="mb-24">
+            <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-slate-100 flex flex-col md:flex-row min-h-[650px]">
+                
+                <div class="md:w-5/12 p-10 md:p-16 bg-gradient-premium text-white flex flex-col justify-center relative">
+                    <span class="bg-blue-500/30 text-blue-100 text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-8 uppercase tracking-widest">Calculateur Officiel H1/H2/H3</span>
+                    <h1 class="text-4xl font-black mb-8 leading-tight italic decoration-blue-400 underline decoration-4 underline-offset-8">Ne subissez pas l'inflation énergétique.</h1>
+                    <p class="text-sm mb-10 text-blue-100 leading-relaxed">Le guichet national est en attente, mais les barèmes de **30 000 €** sont confirmés. Nous préparons votre dossier technique pour le Q1 2026.</p>
+                    
                     <ul class="space-y-6 text-sm">
-                        <li class="flex items-center gap-3"><span>🛡️</span> Neutralité Indépendante</li>
-                        <li class="flex items-center gap-3"><span>📊</span> Calcul Plus-value Immobilière</li>
-                        <li class="flex items-center gap-3"><span>⏳</span> Accès Prioritaire ADEME</li>
+                        <li class="flex items-center gap-4"><span class="text-blue-300 text-xl">🛡️</span> Étude gratuite & sans engagement</li>
+                        <li class="flex items-center gap-4"><span class="text-blue-300 text-xl">📊</span> Audit certifié ADEME obligatoire</li>
+                        <li class="flex items-center gap-4"><span class="text-blue-300 text-xl">⏳</span> Inscription sur liste prioritaire</li>
                     </ul>
                 </div>
 
-                <div class="md:w-7/12 p-8 md:p-12 bg-white">
+                <div class="md:w-7/12 p-10 md:p-16 bg-white flex flex-col justify-center">
                     <form id="simuForm">
                         <div class="step active" id="step1">
-                            <h2 class="text-xl font-black mb-6">1. Votre projet prioritaire :</h2>
-                            <div class="space-y-3">
-                                <label class="block p-4 border-2 border-slate-100 rounded-2xl cursor-pointer hover:bg-slate-50 transition">
-                                    <input type="radio" name="projet" value="GLOBAL" checked> 
-                                    <span class="ml-3 font-bold">Rénovation Globale (Ampleur)</span>
+                            <h2 class="text-2xl font-black mb-8 text-slate-800 uppercase tracking-tighter italic">1. Votre projet 2026 :</h2>
+                            <div class="space-y-4">
+                                <label class="flex items-center p-5 border-2 border-slate-100 rounded-[1.5rem] cursor-pointer hover:border-blue-200 hover:bg-slate-50 transition-all">
+                                    <input type="radio" name="projet" value="GLOBAL" class="w-5 h-5 text-blue-600" checked>
+                                    <div class="ml-5">
+                                        <span class="block font-black text-slate-700 uppercase text-sm">Rénovation d'Ampleur</span>
+                                        <span class="text-[10px] text-blue-600 font-bold uppercase">Priorité d'État — Max 30 000€</span>
+                                    </div>
                                 </label>
-                                <label class="block p-4 border-2 border-slate-100 rounded-2xl cursor-pointer hover:bg-slate-50 transition">
-                                    <input type="radio" name="projet" value="PAC"> 
-                                    <span class="ml-3 font-bold">Pompe à Chaleur Air-Eau</span>
+                                <label class="flex items-center p-5 border-2 border-slate-100 rounded-[1.5rem] cursor-pointer hover:border-blue-200 hover:bg-slate-50 transition-all">
+                                    <input type="radio" name="projet" value="PAC" class="w-5 h-5 text-blue-600">
+                                    <span class="ml-5 font-bold text-slate-700 uppercase text-sm tracking-tight">Pompe à Chaleur (Chauffage)</span>
                                 </label>
                             </div>
-                            <button type="button" onclick="nextStep(2)" class="w-full mt-8 bg-slate-900 text-white py-4 rounded-xl font-bold uppercase">Continuer</button>
+                            <button type="button" onclick="nextStep(2)" class="w-full mt-12 bg-slate-900 text-white py-5 rounded-2xl font-black text-xl hover:bg-blue-700 transition shadow-xl uppercase tracking-tighter">Étape Suivante</button>
                         </div>
 
                         <div class="step" id="step2">
-                            <h2 class="text-xl font-black mb-6">2. Détails du logement :</h2>
-                            <div class="grid grid-cols-2 gap-4 mb-6">
-                                <label class="p-4 border-2 border-slate-100 rounded-2xl text-center cursor-pointer hover:bg-slate-50">
-                                    <input type="radio" name="logement" value="MAISON" checked> 🏠 Maison
+                            <h2 class="text-2xl font-black mb-8 text-slate-800 uppercase tracking-tighter italic">2. Votre Logement :</h2>
+                            <div class="grid grid-cols-2 gap-4 mb-8">
+                                <label class="cursor-pointer group">
+                                    <input type="radio" name="logement" value="MAISON" class="hidden peer" checked>
+                                    <div class="p-6 border-2 border-slate-100 rounded-[1.5rem] text-center peer-checked:border-blue-600 peer-checked:bg-blue-50 transition">
+                                        <span class="text-3xl mb-2 block">🏠</span>
+                                        <span class="font-black text-[10px] uppercase text-slate-600">Maison</span>
+                                    </div>
                                 </label>
-                                <label class="p-4 border-2 border-slate-100 rounded-2xl text-center cursor-pointer hover:bg-slate-50">
-                                    <input type="radio" name="logement" value="APPART"> 🏢 Appartement
+                                <label class="cursor-pointer group">
+                                    <input type="radio" name="logement" value="APPART" class="hidden peer">
+                                    <div class="p-6 border-2 border-slate-100 rounded-[1.5rem] text-center peer-checked:border-blue-600 peer-checked:bg-blue-50 transition">
+                                        <span class="text-3xl mb-2 block">🏢</span>
+                                        <span class="font-black text-[10px] uppercase text-slate-600">Appartement</span>
+                                    </div>
                                 </label>
                             </div>
-                            <select id="statut" class="w-full border-2 border-slate-100 rounded-xl p-4 font-bold bg-slate-50">
+                            <select id="statut" class="w-full border-2 border-slate-100 rounded-[1.5rem] p-5 font-bold text-slate-700 bg-slate-50 outline-none focus:border-blue-600">
                                 <option value="OCCUPANT">Propriétaire Occupant</option>
                                 <option value="BAILLEUR">Propriétaire Bailleur</option>
                             </select>
-                            <button type="button" onclick="nextStep(3)" class="w-full mt-8 bg-slate-900 text-white py-4 rounded-xl font-bold uppercase">Continuer</button>
+                            <button type="button" onclick="nextStep(3)" class="w-full mt-10 bg-slate-900 text-white py-5 rounded-2xl font-black text-xl uppercase tracking-tighter">Continuer</button>
                         </div>
 
                         <div class="step" id="step3">
-                            <h2 class="text-xl font-black mb-6">3. Vos revenus annuels :</h2>
-                            <input type="number" id="revenus" placeholder="Revenu Fiscal de Référence" class="w-full border-2 border-slate-100 rounded-xl p-5 text-2xl font-black mb-6 bg-slate-50 outline-none focus:border-blue-500">
-                            <button type="button" onclick="calculate()" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold uppercase">Estimer mes aides</button>
+                            <h2 class="text-2xl font-black mb-2 text-slate-800 uppercase tracking-tighter italic">3. Vos Revenus :</h2>
+                            <p class="text-xs text-slate-400 font-bold uppercase mb-8 tracking-widest italic">Barème National de Précision</p>
+                            <input type="number" id="revenus" placeholder="Revenu Fiscal (ex: 35000)" class="w-full border-2 border-slate-100 rounded-[1.5rem] p-6 text-3xl font-black outline-none focus:border-blue-600 shadow-inner bg-slate-50 mb-8">
+                            <button type="button" onclick="calculate()" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black text-xl uppercase tracking-tighter shadow-2xl hover:bg-blue-700 transition">Calculer mes aides</button>
                         </div>
 
                         <div class="step text-center" id="step4">
-                            <div class="mb-8 bg-blue-50 p-6 rounded-3xl border border-blue-100">
-                                <div class="text-5xl font-black text-slate-900 my-2" id="montantAide">0 €*</div>
-                                <p class="text-[10px] font-bold uppercase text-slate-500 tracking-widest">Estimation 2026</p>
+                            <div class="mb-10 bg-blue-50 p-8 rounded-[2rem] border border-blue-100 shadow-inner">
+                                <span class="text-blue-600 font-black text-[10px] tracking-widest uppercase italic">Estimation 2026</span>
+                                <div class="text-6xl font-black text-slate-900 my-2" id="montantAide">0 €*</div>
+                                <p class="text-[10px] font-bold uppercase text-slate-500 tracking-tighter">Montant réservé aux dossiers pré-audités ADEME</p>
                             </div>
-                            <div class="bg-white p-6 rounded-3xl border-2 border-orange-500 mb-6 text-left shadow-lg">
-                                <input type="text" id="nom" placeholder="Votre Prénom" required class="w-full border border-slate-200 rounded-xl p-4 mb-3 bg-slate-50">
-                                <input type="tel" id="tel" placeholder="N° de Téléphone Mobile" required class="w-full border border-slate-200 rounded-xl p-4 mb-4 bg-slate-50">
-                                <label class="flex items-start gap-3 cursor-pointer">
-                                    <input type="checkbox" id="rgpd" required class="mt-1">
-                                    <span class="text-[10px] text-slate-500 leading-tight">J'accepte que mes données soient transmises à des partenaires certifiés RGE pour mon étude gratuite. <a href="/politique-de-confidentialite" class="text-blue-600 underline">En savoir plus.</a></span>
+                            
+                            <div class="bg-white p-8 rounded-[2rem] border-2 border-orange-500 mb-8 text-left relative shadow-xl">
+                                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-[9px] font-black px-4 py-1 rounded-full uppercase italic">Accès Prioritaire 24h</span>
+                                <input type="text" id="nom" placeholder="Votre Prénom" required class="w-full border border-slate-200 rounded-xl p-4 mb-4 bg-slate-50 outline-none">
+                                <input type="tel" id="tel" placeholder="N° de Téléphone Mobile" required class="w-full border border-slate-200 rounded-xl p-4 mb-5 bg-slate-50 outline-none">
+                                
+                                <label class="flex items-start gap-3 cursor-pointer group">
+                                    <input type="checkbox" id="rgpd" required class="mt-1 w-4 h-4 text-blue-600 border-slate-300 rounded">
+                                    <span class="text-[10px] text-slate-500 font-medium leading-tight">
+                                        J'accepte d'être recontacté sous 24h et que mes données soient transmises à des partenaires RGE pour mon étude gratuite. <a href="/politique-de-confidentialite" class="text-blue-600 underline">Confidentialité</a>.
+                                    </span>
                                 </label>
                             </div>
-                            <button type="submit" id="submitBtn" class="w-full bg-orange-500 text-white py-5 rounded-2xl font-black text-xl shadow-2xl hover:bg-orange-600 transition uppercase tracking-tighter">Réserver mon dossier 2026</button>
+                            <button type="submit" id="submitBtn" class="w-full bg-orange-500 text-white py-6 rounded-[1.5rem] font-black text-2xl shadow-2xl hover:bg-orange-600 transition uppercase tracking-tighter">Réserver mon dossier 2026</button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
 
-        <section class="mb-20 py-12 border-t border-b border-slate-200">
-            <h3 class="text-slate-400 text-[10px] font-black uppercase tracking-[0.3em] mb-8 text-center">Nos observatoires locaux MaPrimeRénov' 2026</h3>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center text-xs font-bold text-slate-600">
-                <a href="/villes/paris" class="hover:text-blue-600 transition">PARIS</a>
-                <a href="/villes/marseille" class="hover:text-blue-600 transition">MARSEILLE</a>
-                <a href="/villes/lyon" class="hover:text-blue-600 transition">LYON</a>
-                <a href="/villes/toulouse" class="hover:text-blue-600 transition">TOULOUSE</a>
-                <a href="/villes/nice" class="hover:text-blue-600 transition">NICE</a>
-                <a href="/villes/nantes" class="hover:text-blue-600 transition">NANTES</a>
-                <a href="/villes/montpellier" class="hover:text-blue-600 transition">MONTPELLIER</a>
-                <a href="/villes/strasbourg" class="hover:text-blue-600 transition">STRASBOURG</a>
-                <a href="/villes/bordeaux" class="hover:text-blue-600 transition">BORDEAUX</a>
-                <a href="/villes/lille" class="hover:text-blue-600 transition">LILLE</a>
+        <section class="mb-24 py-16 border-t border-b border-slate-200">
+            <h3 class="text-center text-slate-400 text-[10px] font-black uppercase tracking-[0.4em] mb-12 italic">Observatoires Régionaux MaPrimeRénov' 2026</h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-y-8 gap-x-4 text-center">
+                <a href="/villes/paris" class="text-xs font-black text-slate-600 hover:text-blue-600 transition uppercase tracking-widest">Paris</a>
+                <a href="/villes/marseille" class="text-xs font-black text-slate-600 hover:text-blue-600 transition uppercase tracking-widest">Marseille</a>
+                <a href="/villes/lyon" class="text-xs font-black text-slate-600 hover:text-blue-600 transition uppercase tracking-widest">Lyon</a>
+                <a href="/villes/toulouse" class="text-xs font-black text-slate-600 hover:text-blue-600 transition uppercase tracking-widest">Toulouse</a>
+                <a href="/villes/nice" class="text-xs font-black text-slate-600 hover:text-blue-600 transition uppercase tracking-widest">Nice</a>
+                <a href="/villes/nantes" class="text-xs font-black text-slate-600 hover:text-blue-600 transition uppercase tracking-widest">Nantes</a>
+                <a href="/villes/montpellier" class="text-xs font-black text-slate-600 hover:text-blue-600 transition uppercase tracking-widest">Montpellier</a>
+                <a href="/villes/strasbourg" class="text-xs font-black text-slate-600 hover:text-blue-600 transition uppercase tracking-widest">Strasbourg</a>
+                <a href="/villes/bordeaux" class="text-xs font-black text-slate-600 hover:text-blue-600 transition uppercase tracking-widest">Bordeaux</a>
+                <a href="/villes/lille" class="text-xs font-black text-slate-600 hover:text-blue-600 transition uppercase tracking-widest">Lille</a>
             </div>
         </section>
+
+        <section class="mb-24 max-w-4xl mx-auto bg-white p-12 md:p-20 rounded-[3rem] shadow-xl border border-slate-100">
+            <span class="text-orange-500 font-black text-[10px] uppercase tracking-[0.3em]">Actualité Législative 2026</span>
+            <h2 class="text-3xl font-black text-slate-900 mt-6 mb-10 leading-tight italic underline decoration-orange-500 decoration-4 underline-offset-8 uppercase tracking-tighter">Guide 2026 : Pourquoi le guichet est-il suspendu ?</h2>
+            <div class="prose prose-slate max-w-none text-slate-600 space-y-6">
+                <p>Depuis le 1er janvier 2026, l'État a temporairement suspendu les nouveaux dossiers MaPrimeRénov' pour réorienter le budget vers le parcours **"Rénovation d'Ampleur"**. Avec un plafond de **30 000 €**, cette aide est désormais conditionnée à un audit énergétique ADEME certifié.</p>
+                <p>Le calcul de l'économie annuelle ($E$) s'appuie désormais sur la formule :</p>
+                <div class="py-6 text-center text-slate-900 bg-slate-50 rounded-2xl font-bold">
+                    $$ E = S \times (U_{avant} - U_{apres}) \times DJU \times 24 \div \eta $$
+                </div>
+                <p>Pour ne pas perdre votre droit aux subventions, la réservation d'un technicien RGE pour votre audit avant la réouverture officielle est la seule stratégie viable cette année.</p>
+                <a href="/guide-maprimerenov-2026" class="inline-block mt-4 bg-blue-600 text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest shadow-lg hover:bg-blue-700 transition">Lire le Guide Complet 2026 →</a>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="bg-white border-t py-12 px-6 text-center">
-        <div class="flex flex-wrap justify-center gap-8 mb-8 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+    <footer class="bg-white border-t py-16 px-6 text-center">
+        <div class="flex flex-wrap justify-center gap-10 mb-10 text-[10px] font-black text-slate-400 uppercase tracking-widest">
             <a href="/mentions-legales" class="hover:text-blue-600 transition">Mentions Légales</a>
             <a href="/politique-de-confidentialite" class="hover:text-blue-600 transition">Confidentialité</a>
             <a href="/cookies" class="hover:text-blue-600 transition">Gestion des Cookies</a>
             <a href="/contact" class="hover:text-blue-600 transition">Contact Expert</a>
         </div>
-        <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">&copy; 2026 Direct Rénov Énergie - Expertise ADEME & ANAH</p>
+        <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest italic">&copy; 2026 Direct Rénov Énergie - Expertise ADEME & ANAH 2026</p>
     </footer>
 
     <script>
         function nextStep(s) {
             document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
             document.getElementById('step' + s).classList.add('active');
+            window.scrollTo({ top: document.getElementById('step' + s).offsetTop - 150, behavior: 'smooth' });
         }
         function calculate() {
             const revenus = Number(document.getElementById('revenus').value);
+            if (revenus <= 0) { alert("Veuillez entrer un revenu valide."); return; }
             let montant = (revenus < 32000) ? 30000 : (revenus < 45000) ? 22500 : (revenus < 65000) ? 12000 : 3500;
             document.getElementById('montantAide').innerText = montant.toLocaleString() + " €*";
             nextStep(4);
@@ -144,10 +188,8 @@
         document.getElementById('simuForm').onsubmit = function(e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
-            btn.innerText = "SÉCURISATION...";
-            btn.disabled = true;
-            // Ton code fetch vers Google Sheets ici
-            setTimeout(() => { alert("Réservation confirmée !"); location.reload(); }, 1000);
+            btn.innerText = "SÉCURISATION..."; btn.disabled = true;
+            setTimeout(() => { alert("Demande de dossier 2026 confirmée ! Un expert vous rappellera sous 24h."); location.reload(); }, 1500);
         };
     </script>
 </body>
