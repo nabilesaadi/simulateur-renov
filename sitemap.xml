@@ -2,17 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.direct-renov-energie.com/</loc>
-    <lastmod>2026-01-16</lastmod>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  <url><loc>https://www.direct-renov-energie.com/villes/paris.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.direct-renov-energie.com/villes/marseille.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.direct-renov-energie.com/villes/lyon.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.direct-renov-energie.com/villes/toulouse.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.direct-renov-energie.com/villes/nice.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.direct-renov-energie.com/villes/nantes.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.direct-renov-energie.com/villes/montpellier.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.direct-renov-energie.com/villes/strasbourg.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.direct-renov-energie.com/villes/bordeaux.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.direct-renov-energie.com/villes/lille.html</loc><priority>0.8</priority></url>
+
+  <url>
+    <loc>https://www.direct-renov-energie.com/guide-maprimerenov-2026</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url><loc>https://www.direct-renov-energie.com/villes/paris</loc><lastmod>2026-01-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.direct-renov-energie.com/villes/marseille</loc><lastmod>2026-01-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.direct-renov-energie.com/villes/lyon</loc><lastmod>2026-01-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.direct-renov-energie.com/villes/toulouse</loc><lastmod>2026-01-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.direct-renov-energie.com/villes/nice</loc><lastmod>2026-01-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.direct-renov-energie.com/villes/nantes</loc><lastmod>2026-01-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.direct-renov-energie.com/villes/montpellier</loc><lastmod>2026-01-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.direct-renov-energie.com/villes/strasbourg</loc><lastmod>2026-01-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.direct-renov-energie.com/villes/bordeaux</loc><lastmod>2026-01-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://www.direct-renov-energie.com/villes/lille</loc><lastmod>2026-01-18</lastmod><priority>0.8</priority></url>
 </urlset>
